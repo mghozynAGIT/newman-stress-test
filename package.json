@@ -1,0 +1,18 @@
+{
+  "name": "newman-stress-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.1",
+    "newman": "^5.3.0",
+    "path": "^0.12.7"
+  }
+}

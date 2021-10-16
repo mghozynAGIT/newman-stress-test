@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "90ee46ed-ccdb-4e7d-8309-45841c7cc0c6",
+		"name": "Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GQL - Get Catalog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"operationName\": \"RechargeCatalogMenu\",\n        \"variables\": {\n            \"platformID\": 8\n        },\n        \"query\": \"query RechargeCatalogMenu($platformID: Int!) {\\n  rechargeCatalogMenu(platformID: $platformID) {\\n    id\\n    name\\n    label\\n    icon\\n    slugName: slug_name\\n    categoryIds: category_ids\\n    __typename\\n  }\\n}\\n\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gql.tokopedia.com/",
+					"protocol": "https",
+					"host": [
+						"gql",
+						"tokopedia",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});"
+				]
+			}
+		}
+	]
+}
